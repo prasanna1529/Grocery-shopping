@@ -1,0 +1,173 @@
+import java.util.*;
+public class Main extends Grocery{
+
+	public static void main(String[] args) {
+		Grocery obj=new Grocery();
+		obj.showMenu();
+
+	}
+
+}
+class Grocery
+{
+	int totalsum=0,vegsum=0,fruitsum=0;
+	private void placeOrder()
+	{
+		int option;
+		do
+		{
+			System.out.println("Select your choice:\n1.Fruits\n2.Vegetables\n3.Home");
+			Scanner sc=new Scanner(System.in);
+			option=sc.nextInt();
+			switch(option)
+			{
+			case 1:
+				fruit();
+				break;
+			case 2:
+				veg();
+				break;
+			case 3:
+				showMenu();
+				break;
+			}
+		}while(option>=1&&option<3);
+	}
+	private void veg() {
+		// TODO Auto-generated method stub
+		int choice=0;
+		do
+		{
+			System.out.println("Choose your vegetables to purchase:\n1.Tomato\n2.Potato\n3.Carrot\n4.Radish\n5.MainMenu");
+			Scanner sc=new Scanner(System.in);
+			choice=sc.nextInt();
+			int quan=0;
+			int rateperkg=0;
+				switch(choice)
+				{
+				case 1:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=90;
+					break;
+				case 2:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=120;
+					break;
+				case 3:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=130;
+					break;
+				case 4:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=80;
+					break;
+				case 5:
+					placeOrder();
+					break;
+				}
+				for(int i=1;i<=quan;i++)
+				{
+				vegsum+=rateperkg;
+				}
+		}while(choice<5);
+		totalsum+=vegsum;
+		
+	}
+		
+	
+	private void fruit() {
+		int choice=0;
+		fruitsum=0;
+		do
+		{
+			System.out.println("Choose your fruits to purchase:\n1.Apple\n2.Mango\n3.Pomegranate\n4.Orange\n5.MainMenu\n");
+			Scanner sc=new Scanner(System.in);
+			choice=sc.nextInt();
+			int quan=0;
+			int rateperkg=0;
+				switch(choice)
+				{
+				case 1:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=90;
+					break;
+				case 2:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=120;
+					break;
+				case 3:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=130;
+					break;
+				case 4:
+					System.out.println("Enter quantity:");
+					quan=sc.nextInt();
+					rateperkg=80;
+					break;
+				case 5:
+					placeOrder();
+					break;
+				}
+				for(int i=1;i<=quan;i++)
+				{
+				fruitsum+=rateperkg;
+				}
+		}while(choice<5);
+		totalsum+=fruitsum;
+		
+	}
+	protected void showMenu()
+	{
+		System.out.println("Welcome to the Prasanna's Grocery Store!!!");
+		int option2;
+		do
+		{
+			System.out.println("1.Place Order\n2.View Cart\n3.Contact for Home Delivery\n4.Exit");
+			Scanner sc=new Scanner(System.in);
+			option2=sc.nextInt();
+			switch(option2)
+			{
+			case 1:
+				placeOrder();
+				break;
+			case 2:
+				viewCart();
+				break;
+			case 3:
+				contactUs();
+				break;
+			case 4:
+				viewCart();
+				System.out.print("Thanks for your visit!!!Come again!!!");
+				break;
+			default:
+				System.out.println("Invalid Option!!Enter a Valid Option");
+				break;
+			}
+				
+		}while(option2<=2);
+	}
+	private void viewCart() {
+		System.out.println("YOUR ORDER:\n");
+		if(fruitsum!=0)
+		System.out.println("Fruits : "+fruitsum);
+		if(vegsum!=0)
+		System.out.println("Vegetables : "+vegsum);
+		System.out.println("Your Total Order Amount : "+(vegsum+fruitsum));
+	}
+	private void contactUs() {
+		System.out.println("Contact Us for HomeDelivery @1234567890");
+		System.out.println("Whatsapp your orders @2345678901");
+		System.out.println("DM us in Instagram @Prasanna_groceries");
+		
+	}
+	
+	
+}
